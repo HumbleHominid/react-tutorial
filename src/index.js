@@ -76,6 +76,16 @@ class Game extends React.Component {
     };
   }
 
+  restartGame()
+  {
+    this.setState({
+      history: [{
+        squares: Array(9).fill(null),
+      }],
+      xIsNext: true,
+    });
+  }
+
   handleClick(i) {
     const history = this.state.history;
     const current = history[history.length - 1];
@@ -114,6 +124,7 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
+          <button onClick={() => this.restartGame()}>Restart Game</button>
           <ol>{/* TODO */}</ol>
         </div>
       </div>
