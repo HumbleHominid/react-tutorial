@@ -4,7 +4,7 @@ import './index.css';
 
 function Square(props) {
   return (
-    <button className="square" onClick={props.onClick}>
+    <button key={props.key} className="square" onClick={props.onClick}>
       {props.value}
     </button>
   );
@@ -12,7 +12,7 @@ function Square(props) {
 
 function BoardRow(props) {
   return (
-    <div className="board-row">
+    <div key={props.key} className="board-row">
       {props.items}
     </div>
   );
@@ -28,11 +28,13 @@ class Board extends React.Component {
       {
         const val = (i * 3) + j;
         squares[j] = Square({
+          key: j,
           value: this.props.squares[val],
           onClick: () => this.props.onClick(val),
         });
       }
       rows[i] = BoardRow({
+        key: i,
         items: squares,
       });
     }
