@@ -110,9 +110,16 @@ class Game extends React.Component {
       } else {
         desc = 'Go to game start';
       }
+
+      const isBold = this.state.stepNumber + 1 < this.state.history.length && move === this.state.stepNumber;
+
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button
+            onClick={() => this.jumpTo(move)}
+            className={isBold ? 'bold' : ''}>
+            {desc}
+          </button>
         </li>
       );
     });

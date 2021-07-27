@@ -8,6 +8,10 @@ ul {
   padding-left: 30px;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .board-row:after {
   clear: both;
   content: "";
